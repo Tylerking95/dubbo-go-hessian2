@@ -25,7 +25,7 @@ import (
 )
 
 func TestMultipleLevelRecursiveDep(t *testing.T) {
-	// 测试 encode 和 decode 后的对象和源对象结构是一致的，值是相等的
+	// ensure encode() and decode() are consistent
 	data := generateLargeMap(2, 10) // about 1M
 
 	encoder := NewEncoder()
@@ -49,10 +49,11 @@ func TestMultipleLevelRecursiveDep(t *testing.T) {
 }
 
 func TestMultipleLevelRecursiveDep2(t *testing.T) {
+	// ensure decode() a large object is fast
 	data := generateLargeMap(3, 5) // about 10MB
 
 	now := time.Now()
-	
+
 	encoder := NewEncoder()
 	err := encoder.Encode(data)
 	if err != nil {
@@ -80,7 +81,7 @@ func TestMultipleLevelRecursiveDep2(t *testing.T) {
 	}
 }
 func BenchmarkMultipleLevelRecursiveDep(b *testing.B) {
-	// 构造一个多层循环依赖的对象, 无需大对象， 压测情况大批量请求可以看出是否有性能改进
+	// benchmark for decode()
 	data := generateLargeMap(2, 5) // about 300KB
 
 	b.ResetTimer()
