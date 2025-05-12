@@ -85,7 +85,7 @@ func BenchmarkMultipleLevelRecursiveDep(b *testing.B) {
 	data := generateLargeMap(2, 5) // about 300KB
 
 	b.ResetTimer()
-	for range b.N {
+	for i := 0; i < b.N; i++ {
 		encoder := NewEncoder()
 		err := encoder.Encode(data)
 		if err != nil {
