@@ -17,7 +17,9 @@
 
 package java_exception
 
-import "strconv"
+import (
+	"strconv"
+)
 
 // IllegalFormatPrecisionException represents an exception of the same name in java
 type IllegalFormatPrecisionException struct {

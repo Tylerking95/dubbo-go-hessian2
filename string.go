@@ -30,13 +30,13 @@ import (
 
 import (
 	gxbytes "github.com/dubbogo/gost/bytes"
+
 	perrors "github.com/pkg/errors"
 )
 
-/////////////////////////////////////////
+// ///////////////////////////////////////
 // String
-/////////////////////////////////////////
-
+// ///////////////////////////////////////
 // Slice convert string to byte slice
 func Slice(s string) (b []byte) {
 	pbytes := (*reflect.SliceHeader)(unsafe.Pointer(&b))

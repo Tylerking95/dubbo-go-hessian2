@@ -17,7 +17,9 @@
 
 package hessian
 
-import "reflect"
+import (
+	"reflect"
+)
 
 func init() {
 	var a int32 = 1

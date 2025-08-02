@@ -17,7 +17,9 @@
 
 package testfuncs
 
-import hessian "github.com/apache/dubbo-go-hessian2"
+import (
+	hessian "github.com/apache/dubbo-go-hessian2"
+)
 
 type A0 struct{}
 
