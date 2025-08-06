@@ -17,7 +17,9 @@
 
 package java_exception
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // MissingFormatArgumentException represents an exception of the same name in java
 type MissingFormatArgumentException struct {

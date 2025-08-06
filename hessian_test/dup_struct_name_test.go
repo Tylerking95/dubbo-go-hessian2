@@ -22,12 +22,12 @@ import (
 )
 
 import (
-	"github.com/apache/dubbo-go-hessian2"
-	dupclass "github.com/apache/dubbo-go-hessian2/hessian_test/hessian_test"
+	"github.com/stretchr/testify/assert"
 )
 
 import (
-	"github.com/stretchr/testify/assert"
+	"github.com/apache/dubbo-go-hessian2"
+	dupclass "github.com/apache/dubbo-go-hessian2/hessian_test/hessian_test"
 )
 
 const (

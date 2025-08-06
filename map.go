@@ -20,14 +20,15 @@ package hessian
 import (
 	"io"
 	"reflect"
+)
 
+import (
 	perrors "github.com/pkg/errors"
 )
 
-/////////////////////////////////////////
+// ///////////////////////////////////////
 // map/object
-/////////////////////////////////////////
-
+// ///////////////////////////////////////
 // ::= 'M' type (value value)* 'Z'  # key, value map pairs
 // ::= 'H' (value value)* 'Z'       # untyped key, value
 func (e *Encoder) encUntypedMap(m map[interface{}]interface{}) error {

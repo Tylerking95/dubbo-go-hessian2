@@ -17,7 +17,9 @@
 
 package java_exception
 
-import "strconv"
+import (
+	"strconv"
+)
 
 // IllegalFormatWidthException represents an exception of the same name in java
 type IllegalFormatWidthException struct {

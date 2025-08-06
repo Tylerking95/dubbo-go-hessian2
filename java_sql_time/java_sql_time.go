@@ -17,7 +17,9 @@
 
 package java_sql_time
 
-import "time"
+import (
+	"time"
+)
 
 type JavaSqlTime interface {
 	// ValueOf parse time string which format likes '2006-01-02 15:04:05'

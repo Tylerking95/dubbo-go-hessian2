@@ -17,7 +17,9 @@
 
 package java_exception
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // IllegalFormatConversionException represents an exception of the same name in java
 type IllegalFormatConversionException struct {

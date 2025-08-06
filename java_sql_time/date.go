@@ -17,7 +17,9 @@
 
 package java_sql_time
 
-import "time"
+import (
+	"time"
+)
 
 type Date struct {
 	time.Time

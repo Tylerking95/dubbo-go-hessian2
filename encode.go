@@ -30,7 +30,6 @@ import (
 // nil bool int8 int32 int64 float32 float64 time.Time
 // string []byte []interface{} map[interface{}]interface{}
 // array object struct
-
 // Encoder struct
 type Encoder struct {
 	classInfoList []*ClassInfo

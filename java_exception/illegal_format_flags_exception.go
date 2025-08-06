@@ -17,7 +17,9 @@
 
 package java_exception
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // IllegalFormatFlagsException represents an exception of the same name in java
 type IllegalFormatFlagsException struct {
