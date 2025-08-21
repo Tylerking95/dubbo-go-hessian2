@@ -37,7 +37,7 @@ var ZeroDate = time.Time{}
 func encDateInMs(b []byte, i interface{}) []byte {
 	value := UnpackPtrValue(reflect.ValueOf(i))
 	vi := value.Interface().(time.Time)
-	if vi == ZeroDate {
+	if vi.Equal(ZeroDate) {
 		return append(b, BC_NULL)
 	}
 	b = append(b, BC_DATE)
@@ -73,10 +73,10 @@ func (d *Decoder) decDate(flag int32) (time.Time, error) {
 		tag, _ = d.ReadByte()
 	}
 
-	switch {
-	case tag == BC_NULL:
+	switch tag {
+	case BC_NULL:
 		return ZeroDate, nil
-	case tag == BC_DATE: //'d': //date
+	case BC_DATE: //'d': //date
 		s = buf[:8]
 		l, err = d.nextFull(s)
 		if err != nil {
@@ -89,7 +89,7 @@ func (d *Decoder) decDate(flag int32) (time.Time, error) {
 		return time.Unix(i64/1000, i64%1000*10e5), nil
 		// return time.Unix(i64/1000, i64*100), nil
 
-	case tag == BC_DATE_MINUTE:
+	case BC_DATE_MINUTE:
 		s = buf[:4]
 		l, err = d.nextFull(s)
 		if err != nil {

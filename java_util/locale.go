@@ -81,7 +81,7 @@ func (LocaleHandle) JavaClassName() string {
 // locales is all const Locale struct slice
 // localeMap is key = locale.String() value = locale struct
 var (
-	locales   []Locale            = make([]Locale, 22, 22)
+	locales   []Locale            = make([]Locale, 22)
 	localeMap map[string](Locale) = make(map[string](Locale), 22)
 )
 

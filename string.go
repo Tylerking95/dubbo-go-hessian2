@@ -114,10 +114,7 @@ func encString(b []byte, v string) []byte {
 	buf := *bufp
 
 	byteRead = 0
-	for {
-		if vBuf.Len() <= 0 {
-			break
-		}
+	for vBuf.Len() > 0 {
 
 		charCount = 0
 		byteCount = 0
@@ -225,7 +222,7 @@ func (d *Decoder) decString(flag int32) (string, error) {
 
 	case (0x80 <= tag && tag <= 0xbf) || (0xc0 <= tag && tag <= 0xcf) ||
 		(0xd0 <= tag && tag <= 0xd7) || tag == BC_INT ||
-		(tag >= 0xd8 && tag <= 0xef) || (tag >= 0xf0 && tag <= 0xff) ||
+		(tag >= 0xd8 && tag <= 0xef) || (tag >= 0xf0) ||
 		(tag >= 0x38 && tag <= 0x3f) || (tag == BC_LONG_INT) || (tag == BC_LONG):
 		i64, err := d.decInt64(int32(tag))
 		if err != nil {

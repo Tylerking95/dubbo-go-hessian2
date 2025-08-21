@@ -137,7 +137,7 @@ func (e *Encoder) Encode(v interface{}) error {
 		e.buffer = encInt64(e.buffer, int64(val))
 
 	case time.Time:
-		if ZeroDate == val {
+		if ZeroDate.Equal(val) {
 			e.buffer = EncNull(e.buffer)
 		} else {
 			e.buffer = encDateInMs(e.buffer, &val)
@@ -183,8 +183,7 @@ func (e *Encoder) Encode(v interface{}) error {
 				return nil
 			}
 			if p, ok := v.(POJO); ok {
-				var clazz string
-				clazz = p.JavaClassName()
+				clazz := p.JavaClassName()
 				if c, ok := GetSerializer(clazz); ok {
 					return c.EncObject(e, p)
 				}

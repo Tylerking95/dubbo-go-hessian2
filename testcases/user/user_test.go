@@ -31,8 +31,7 @@ import (
 )
 
 func TestEnumConvert(t *testing.T) {
-	var g interface{}
-	g = WOMAN
+	g := interface{}(WOMAN)
 
 	// new defined type cant be converted to the original type.
 	failConvertedValue, ok := g.(hessian.JavaEnum)

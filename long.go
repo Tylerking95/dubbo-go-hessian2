@@ -124,7 +124,7 @@ func (d *Decoder) decInt64(flag int32) (int64, error) {
 		i8 := int8(tag - BC_LONG_ZERO)
 		return int64(i8), nil
 
-	case tag >= 0xf0 && tag <= 0xff:
+	case tag >= 0xf0:
 		buf := []byte{tag - BC_LONG_BYTE_ZERO, 0}
 		_, err = io.ReadFull(d.reader, buf[1:])
 		if err != nil {

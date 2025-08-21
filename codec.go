@@ -203,12 +203,12 @@ func UnpackToRootAddressableValue(v reflect.Value) reflect.Value {
 
 // SprintHex converts the []byte to a Hex string.
 func SprintHex(b []byte) (rs string) {
-	rs = fmt.Sprintf("[]byte{")
+	rs = "[]byte{"
 	for _, v := range b {
 		rs += fmt.Sprintf("0x%02x,", v)
 	}
 	rs = strings.TrimSpace(rs)
-	rs += fmt.Sprintf("}\n")
+	rs += "}\n"
 	return
 }
 
