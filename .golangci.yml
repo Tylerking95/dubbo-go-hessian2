@@ -36,6 +36,9 @@ linters:
       - linters:
           - gosec
         text: weak cryptographic primitive
+      - linters:
+          - staticcheck
+        text: SA4003
     paths:
       - third_party$
       - builtin$

@@ -295,7 +295,7 @@ func (d *Decoder) DecodeValue() (interface{}, error) {
 		(0xd0 <= tag && tag <= 0xd7) || tag == BC_INT: //'I': //int
 		return d.decInt32(int32(tag))
 
-	case (tag >= 0xd8 && tag <= 0xef) || (tag >= 0xf0) ||
+	case (tag >= 0xd8 && tag <= 0xef) || (tag >= 0xf0 && tag <= 0xff) ||
 		(tag >= 0x38 && tag <= 0x3f) || (tag == BC_LONG_INT) || (tag == BC_LONG): //'L': //long
 		return d.decInt64(int32(tag))
 
