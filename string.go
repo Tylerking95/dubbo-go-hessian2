@@ -114,10 +114,7 @@ func encString(b []byte, v string) []byte {
 	buf := *bufp
 
 	byteRead = 0
-	for {
-		if vBuf.Len() <= 0 {
-			break
-		}
+	for vBuf.Len() > 0 {
 
 		charCount = 0
 		byteCount = 0

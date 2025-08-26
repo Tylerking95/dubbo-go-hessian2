@@ -258,12 +258,12 @@ func (d *Decoder) decMap(flag int32) (interface{}, error) {
 		tag, _ = d.ReadByte()
 	}
 
-	switch {
-	case tag == BC_NULL:
+	switch tag {
+	case BC_NULL:
 		return nil, nil
-	case tag == BC_REF:
+	case BC_REF:
 		return d.decRef(int32(tag))
-	case tag == BC_MAP:
+	case BC_MAP:
 		if typ, err = d.decMapType(); err != nil {
 			return nil, err
 		}
@@ -304,7 +304,7 @@ func (d *Decoder) decMap(flag int32) (interface{}, error) {
 			return nil, perrors.WithStack(err)
 		}
 		return instValue.Interface(), nil
-	case tag == BC_MAP_UNTYPED:
+	case BC_MAP_UNTYPED:
 		m = make(map[interface{}]interface{})
 		d.appendRefs(m)
 		for d.peekByte() != BC_END {

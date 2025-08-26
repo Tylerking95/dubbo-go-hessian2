@@ -175,8 +175,8 @@ func (d *Decoder) decRef(flag int32) (interface{}, error) {
 		tag, _ = d.ReadByte()
 	}
 
-	switch {
-	case tag == BC_REF:
+	switch tag {
+	case BC_REF:
 		i, err = d.decInt32(TAG_READ)
 		if err != nil {
 			return nil, err

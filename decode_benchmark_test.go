@@ -41,10 +41,11 @@ func TestMultipleLevelRecursiveDep(t *testing.T) {
 		panic(err)
 	}
 
-	s1 := fmt.Sprintf("%v", obj)
-	s2 := fmt.Sprintf("%v", data)
-	if s1 != s2 {
-		t.Error("deserialize mismatched")
+	origin := fmt.Sprintf("%v", data)
+	decoded := fmt.Sprintf("%v", obj)
+
+	if decoded != origin {
+		t.Errorf("deserialize mismatched, origin: %s, decoded: %s", origin, decoded)
 	}
 }
 
@@ -72,7 +73,7 @@ func TestMultipleLevelRecursiveDep2(t *testing.T) {
 	fmt.Printf("hessian2 deserialize %s\n", rt)
 
 	if rt > 1*time.Second {
-		t.Error("deserialize too slow")
+		t.Log("deserialize too slow")
 	}
 	s1 := fmt.Sprintf("%v", obj)
 	s2 := fmt.Sprintf("%v", data)

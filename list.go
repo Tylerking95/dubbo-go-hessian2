@@ -86,7 +86,7 @@ func getListTypeName(goType string) string {
 		for i := 1; i < count; i++ {
 			buf.WriteString("[")
 		}
-		goType = strings.Replace(goType, "[]", "", -1)
+		goType = strings.ReplaceAll(goType, "[]", "")
 	}
 
 	v, ok := listTypeNameMapper.Load(goType)
@@ -368,7 +368,7 @@ func (d *Decoder) readTypedListValue(length int, listTyp string, isVariableArr b
 			d.typeRefs.appendTypeRefs(listTyp, arrType)
 		} else {
 			// using default generic list type if not found registered
-			aryValue = reflect.ValueOf(make([]interface{}, length, length))
+			aryValue = reflect.ValueOf(make([]interface{}, length))
 			d.typeRefs.appendTypeRefs(listTyp, aryValue.Type())
 		}
 	}
