@@ -316,6 +316,7 @@ func (d *Decoder) decMap(flag int32) (interface{}, error) {
 			if err != nil {
 				return nil, err
 			}
+
 			if _, ok := k.(string); !ok {
 				continue
 			}
