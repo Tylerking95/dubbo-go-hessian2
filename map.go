@@ -20,9 +20,7 @@ package hessian
 import (
 	"io"
 	"reflect"
-)
 
-import (
 	perrors "github.com/pkg/errors"
 )
 
@@ -219,7 +217,9 @@ func (d *Decoder) decMapByValue(value reflect.Value) error {
 		if err != nil {
 			return perrors.WithStack(err)
 		}
-
+		if entryValue == nil {
+			continue
+		}
 		// add a layer of conversion to make the map compatible with more types during decoding
 		key := EnsurePackValue(entryKey)
 		if mKey := m.Elem().Type().Key(); key.Type().ConvertibleTo(mKey) {
